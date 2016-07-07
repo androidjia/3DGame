@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp">
+        <com.xzkj.a3dgame.customview.MainArticleFragmentViewPager
+            android:id="@+id/main_articlefragment_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            ></com.xzkj.a3dgame.customview.MainArticleFragmentViewPager>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:orientation="horizontal">
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/point_shape"/>
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/point_shape"/>
+            <View
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/point_shape"/>
+        </LinearLayout>
+    </FrameLayout>
+    <ListView
+        android:id="@+id/ativity_main_articlefragment_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
+</LinearLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="arraygame">
+        <item>射击FPS</item>
+        <item>赛车FPS</item>
+        <item>体育FPS</item>
+        <item>角色FPS</item>
+    </string-array>
+</resources>
