@@ -2,17 +2,23 @@ package com.xzkj.a3dgame;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.HorizontalScrollView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.xzkj.a3dgame.adapter.MainFragmentPagerAdapter;
 import com.xzkj.a3dgame.fragment.ArticleFragment;
+import com.xzkj.a3dgame.fragment.ForumFragment;
+import com.xzkj.a3dgame.fragment.GameFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +32,10 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
     RadioButton rb01_buttom,rb02_buttom,rb03_buttom;
     List<Fragment> fragments;
     MainFragmentPagerAdapter mainFragmentPagerAdapter;
+    GameFragment gameFragment;
+    FragmentManager fragmentManager;
+    ForumFragment forumFragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +43,8 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         initView();
         initData();
         initListener();
+        gameFragment = new GameFragment(getApplicationContext());
+        forumFragment = new ForumFragment();
     }
     private void initListener(){
         radioGroup_top.setOnCheckedChangeListener(this);
@@ -89,6 +101,8 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         switch (i){
             case R.id.main_top_rb1:
                 viewPager.setCurrentItem(0);
@@ -131,9 +145,23 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
                 Toast.makeText(MainActivity.this,"top rb10",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.main_buttom_rb01:
+                transaction.remove(gameFragment);
+                transaction.remove(forumFragment);
+                transaction.commit();
                 viewPager.setCurrentItem(0);
                 Toast.makeText(MainActivity.this,"rb01",Toast.LENGTH_SHORT).show();
                 horizontalScrollView.smoothScrollTo(0,0);
+                break;
+            case R.id.main_buttom_rb02:
+                Toast.makeText(getApplicationContext(),"论坛界面",Toast.LENGTH_SHORT).show();
+                transaction.replace(R.id.activity_main_fragment1,forumFragment);
+                transaction.commit();
+                break;
+            case R.id.main_buttom_rb03:
+                Toast.makeText(getApplicationContext(),"游戏界面",Toast.LENGTH_SHORT).show();
+               transaction.replace(R.id.activity_main_fragment1,gameFragment);
+               transaction.commit();
+
                 break;
 
         }
@@ -156,9 +184,8 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         int left = radioButton.getLeft();
         horizontalScrollView.smoothScrollTo(left,0);
     }
-
     @Override
     public void onPageScrollStateChanged(int state) {
-
     }
+
 }

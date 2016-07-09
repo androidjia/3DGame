@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="arraygame">
-        <item>射击FPS</item>
-        <item>赛车FPS</item>
-        <item>体育FPS</item>
-        <item>角色FPS</item>
+        <item>动作(ACT)</item>
+        <item>射击(FPS)</item>
+        <item>角色扮演（RPG)</item>
+        <item>养成(GAL)</item>
+        <item>益智(PUZ)</item>
+        <item>即时战略(RTS)</item>
+        <item>策略(SLG)</item>
+        <item>体育(SPG)</item>
+        <item>模拟经营(SIM)</item>
+        <item>赛车(RAC)</item>
+        <item>冒险(AVG)</item>
+        <item>动作角色(ARPG)</item>
     </string-array>
 </resources>

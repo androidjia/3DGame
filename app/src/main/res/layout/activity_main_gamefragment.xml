@@ -4,13 +4,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="25dp"
-    android:paddingRight="25dp"
     >
         <FrameLayout
+            android:id="@+id/activity_main_gamefragment_framelayout"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
-        <LinearLayout
+            android:layout_height="match_parent"
+            android:background="#38c1ea"
+            android:paddingTop="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
             android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -30,13 +37,17 @@
                 android:entries="@array/arraygame"
                 android:spinnerMode="dropdown"></Spinner>
         </LinearLayout>
+                <GridView
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:id="@+id/main_fragment_gridview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:numColumns="3"
+                    android:horizontalSpacing="20dp"
+                    android:verticalSpacing="20dp"
+                    ></GridView>
+            </LinearLayout>
         </FrameLayout>
-        <GridView
-            android:id="@+id/main_fragment_gridview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="3"
-            android:horizontalSpacing="10dp"
-            android:verticalSpacing="15dp"
-            ></GridView>
+
 </LinearLayout>
